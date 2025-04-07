@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Profile | Fitness Tracker{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ current_user.username }}</h3>
+            </div>
+            <div class="card-body text-center">
+                {% if current_user.profile_image %}
+                <img src="{{ url_for('static', filename=current_user.profile_image) }}" class="rounded-circle mb-3" width="150" height="150" alt="Profile Picture">
+                {% else %}
+                <img src="{{ url_for('static', filename='img/default-profile.png') }}" class="rounded-circle mb-3" width="150" height="150" alt="Default Profile">
+                {% endif %}
+                
+                <p><strong>Email:</strong> {{ current_user.email }}</p>
+                {% if current_user.first_name %}
+                <p><strong>Name:</strong> {{ current_user.first_name }} {{ current_user.last_name }}</p>
+                {% endif %}
+                {% if current_user.date_of_birth %}
+                <p><strong>Date of Birth:</strong> {{ current_user.date_of_birth.strftime('%b %d, %Y') }}</p>
+                {% endif %}
+                {% if current_user.height %}
+                <p><strong>Height:</strong> {{ current_user.height }} cm</p>
+                {% endif %}
+                {% if current_user.weight %}
+                <p><strong>Weight:</strong> {{ current_user.weight }} kg</p>
+                {% endif %}
+                {% if current_user.gender %}
+                <p><strong>Gender:</strong> {{ current_user.gender|title }}</p>
+                {% endif %}
+                <p><strong>Member Since:</strong> {{ current_user.created_at.strftime('%b %d, %Y') }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Edit Profile</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('auth.profile') }}" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.first_name.label(class="form-label") }}
+                            {{ form.first_name(class="form-control") }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            {{ form.last_name.label(class="form-label") }}
+                            {{ form.last_name(class="form-control") }}
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.date_of_birth.label(class="form-label") }}
+                            {{ form.date_of_birth(class="form-control", type="date") }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            {{ form.gender.label(class="form-label") }}
+                            {{ form.gender(class="form-select") }}
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.height.label(class="form-label") }}
+                            {{ form.height(class="form-control") }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            {{ form.weight.label(class="form-label") }}
+                            {{ form.weight(class="form-control") }}
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form.theme.label(class="form-label") }}
+                        {{ form.theme(class="form-select") }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form.profile_image.label(class="form-label") }}
+                        {{ form.profile_image(class="form-control") }}
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

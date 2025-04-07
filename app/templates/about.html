@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}About | Fitness Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">About Fitness Tracker</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Our Mission</h5>
+                    <p class="card-text">
+                        Fitness Tracker is designed to help you achieve your health and fitness goals by providing tools to track your workouts, 
+                        monitor your nutrition, and visualize your progress over time.
+                    </p>
+                    <p class="card-text">
+                        Whether you're just starting your fitness journey or are a seasoned athlete, our platform provides the features you need 
+                        to stay motivated and reach your potential.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Features</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Create and follow customized workout plans</li>
+                        <li class="list-group-item">Access a comprehensive exercise library</li>
+                        <li class="list-group-item">Track your nutrition with detailed meal planning</li>
+                        <li class="list-group-item">Monitor your progress with insightful statistics</li>
+                        <li class="list-group-item">Set and achieve personal fitness goals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Get Started Today</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Join thousands of users who have transformed their fitness journey with our platform.
+                    </p>
+                    {% if not current_user.is_authenticated %}
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-primary">Sign Up Now</a>
+                        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary">Login</a>
+                    </div>
+                    {% else %}
+                    <div class="d-grid">
+                        <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

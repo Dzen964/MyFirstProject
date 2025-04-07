@@ -1,0 +1,76 @@
+/* Dark Theme */
+:root {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --primary-color: #0d6efd;
+    --secondary-color: #2d3748;
+    --hover-color: #374151;
+    --border-color: #4a5568;
+    --card-bg: #1e1e1e;
+    --navbar-bg: #1a1a1a;
+    --navbar-color: #f0f0f0;
+    --footer-bg: #1a1a1a;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.navbar-dark {
+    background-color: var(--navbar-bg) !important;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.dropdown-menu {
+    background-color: var(--card-bg);
+}
+
+.dropdown-item {
+    color: var(--text-color);
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+}
+
+.alert {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--text-color) !important;
+}
+
+.table {
+    color: var(--text-color);
+}
+
+.form-control, .form-select {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.btn-outline-dark {
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+}

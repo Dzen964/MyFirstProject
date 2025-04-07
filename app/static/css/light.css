@@ -1,0 +1,32 @@
+/* Light Theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #0d6efd;
+    --secondary-color: #e9ecef;
+    --hover-color: #f8f9fa;
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+    --navbar-bg: #0d6efd;
+    --navbar-color: #ffffff;
+    --footer-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.navbar-dark {
+    background-color: var(--navbar-bg) !important;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.footer {
+    background-color: var(--footer-bg) !important;
+}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron bg-light p-5 rounded">
+    <h1 class="display-4">Welcome to Fitness Tracker!</h1>
+    <p class="lead">Your personal health and fitness companion to help you stay motivated and reach your goals.</p>
+    <hr class="my-4">
+    <p>Track your workouts, monitor your nutrition, and see your progress over time.</p>
+    <div class="d-flex gap-2">
+        {% if current_user.is_authenticated %}
+        <a class="btn btn-primary btn-lg" href="{{ url_for('main.dashboard') }}">Go to Dashboard</a>
+        {% else %}
+        <a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}">Get Started</a>
+        <a class="btn btn-outline-primary btn-lg" href="{{ url_for('auth.login') }}">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Track Workouts</h5>
+                <p class="card-text">Log your exercises, sets, reps, and weights to keep a detailed history of your fitness journey.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Monitor Nutrition</h5>
+                <p class="card-text">Record your daily food intake and track calories, macros, and other important nutrients.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">View Progress</h5>
+                <p class="card-text">See your improvements over time with detailed charts and statistics.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

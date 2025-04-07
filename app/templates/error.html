@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Error | Fitness Tracker{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="display-4 text-danger mb-4">Oops!</h1>
+                    <p class="lead">Something went wrong while loading this page.</p>
+                    <p>Our team has been notified about this issue and we're working to fix it.</p>
+                    <div class="mt-4">
+                        <a href="{{ url_for('main.index') }}" class="btn btn-primary">Return to Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

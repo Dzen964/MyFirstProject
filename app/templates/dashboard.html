@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Fitness Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Your Dashboard</h1>
+    
+    <div class="row">
+        <div class="col-md-6 col-xl-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Workout Summary</h5>                    <p class="card-text">
+                        <strong>Workouts This Week:</strong> 
+                        {% if current_user.workout_logs.count() > 0 %}
+                            {{ current_user.workout_logs.count() }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </p>
+                    <a href="#" class="btn btn-primary">View Workouts</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-xl-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Nutrition Summary</h5>                    <p class="card-text">
+                        <strong>Daily Calorie Goal:</strong> 
+                        Not set
+                    </p>
+                    <a href="#" class="btn btn-primary">View Nutrition</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-xl-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Progress</h5>
+                    <p class="card-text">
+                        <strong>Current Weight:</strong> 
+                        {% if current_user.weight %}
+                            {{ current_user.weight }} kg
+                        {% else %}
+                            Not recorded
+                        {% endif %}
+                    </p>
+                    <a href="#" class="btn btn-primary">View Progress</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-xl-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Goals</h5>
+                    <p class="card-text"><strong>Active Goals:</strong> 0</p>
+                    <a href="#" class="btn btn-primary">Set Goals</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Recent Activity</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <!-- This would be replaced with actual user activity data -->
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Completed Leg Day Workout</h6>
+                                <small>3 days ago</small>
+                            </div>
+                            <p class="mb-1">You completed 5 exercises and burned 320 calories.</p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Updated Weight</h6>
+                                <small>5 days ago</small>
+                            </div>
+                            <p class="mb-1">You updated your weight to 68.5 kg.</p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Completed Cardio Workout</h6>
+                                <small>1 week ago</small>
+                            </div>
+                            <p class="mb-1">You completed 30 minutes of cardio and burned 250 calories.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Upcoming Workouts</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <!-- This would be replaced with actual scheduled workouts -->
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Upper Body Strength</h6>
+                                <small>Tomorrow</small>
+                            </div>
+                            <p class="mb-1">45 min · Chest, Shoulders, Arms</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">HIIT Cardio</h6>
+                                <small>In 3 days</small>
+                            </div>
+                            <p class="mb-1">30 min · High Intensity</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-outline-primary btn-sm">Schedule Workout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

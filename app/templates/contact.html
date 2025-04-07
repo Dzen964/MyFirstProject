@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | Fitness Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Contact Us</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Get in Touch</h5>
+                    <p class="card-text">
+                        Have questions, suggestions, or feedback? We'd love to hear from you!
+                    </p>
+                    
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Support Options</h5>
+                    <p class="card-text">
+                        Need help with something specific? Here are some ways to reach us:
+                    </p>
+                    
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <h6>General Inquiries</h6>
+                            <p class="mb-1">
+                                <i class="bi bi-envelope"></i> info@fitnesstracker.com
+                            </p>
+                        </div>
+                        <div class="list-group-item">
+                            <h6>Technical Support</h6>
+                            <p class="mb-1">
+                                <i class="bi bi-envelope"></i> support@fitnesstracker.com
+                            </p>
+                        </div>
+                        <div class="list-group-item">
+                            <h6>Business Partnerships</h6>
+                            <p class="mb-1">
+                                <i class="bi bi-envelope"></i> partners@fitnesstracker.com
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Follow Us</h5>
+                        <div class="d-flex gap-3 mt-2">
+                            <a href="#" class="text-decoration-none fs-4"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-decoration-none fs-4"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-decoration-none fs-4"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-decoration-none fs-4"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
